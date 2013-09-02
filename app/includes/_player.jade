@@ -14,7 +14,7 @@
               {{host.name}}
         span#playing-genres {{show.genres}}
 
-  audio(controls=true, ng-show = "iOS")
+  audio(controls=true, ng-show = "iOS", preload="none")
     source(src="http://rock.radio.depaul.edu:8000/stream/1/", type="audio/mpeg")
   #play-pause-buttons(ng-false = "iOS")
     a#play-button.button.button-circle.button-primary(ng-click = 'playMusic()', ng-hide = "playing") 
