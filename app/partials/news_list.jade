@@ -1,0 +1,13 @@
+section
+  header
+    h1
+      a(href='/#/station_news') News Posts
+  .content
+    ul
+      li(ng-repeat='item in news')
+        header.headline
+          h2
+            a(href='#/station_news/{{item.id}}') {{item.headline}}
+          date {{item.published_at}}
+        .content(ng-bind='item.snippet')
+        a.read-more-button.highlight-color(href='#/station_news/{{item.id}}') Read more ..

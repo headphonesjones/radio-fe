@@ -1,0 +1,53 @@
+#person
+  h2#name {{person.name}}
+  .photoBox.left
+    img(ng-src='{{person.photo_medium}}')
+  section.right.host-box(ng-show='person.shows')
+    header
+      h1 Shows Hosted
+    ul
+      li.shows-hosted(ng-repeat='show in person.shows')
+        a(href='/#/shows/{{show.id}}')
+          img(ng-src='{{show.show_photo_thumb}}', height='50', width='50')
+          p
+            | {{show.title}}
+  section.right.person-info.social-box
+    header
+      h1 Info
+    ul
+      li(ng-show='person.major')
+        h2 Major
+        p {{person.major}}
+      li(ng-show='person.hometown')
+        h2 Hometown
+        p {{person.hometown}}
+      li(ng-show='person.class_year')
+        h2 Class Year
+        p {{person.class_year}}
+  section.right.social-box(ng-show='person.twitter || person.facebook || person.email || person.linkedin')
+    header
+      h1 Follow / E-mail {{person.name}}
+    ul#personshowSocial
+      li.twitter(ng-show='person.twitter')
+        a(href='http://twitter.com/{{person.twitter}}', target='_blank')
+      li.facebook(ng-show='person.facebook')
+        a(href='http://facebook.com/{{person.facebook}}', target='_blank')
+      li.linkedin(ng-show='person.linkedin')
+        a(href='http://linkedin.com/{{person.linkedin}}', target='_blank')
+      li.email(ng-show='person.email')
+        a(href='mailto:{{person.email}}')
+  section.clear(ng-show='person.influences')
+    header
+      h1 Influences
+    p
+      | {{person.influences}}
+  section.clear
+    header
+      h1 Bio
+    p
+      | {{person.bio}}
+  section#person-tweet(twitter='person.twitter')
+  section
+    header
+      h1 Recent Posts
+    .content(disqus='person.name')

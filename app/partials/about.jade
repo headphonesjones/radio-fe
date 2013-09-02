@@ -1,0 +1,105 @@
+html
+  body
+    #about-nav
+      ul#about-ul
+        li(ng-repeat='tab in tabs', ng-class='{active: $parent.tabs.active == tab}', ng-click='$parent.tabs.active = tab') {{tab}}
+    section#managers(ng-show='tabs.active=="Managers"')
+      header
+        h1 Managers
+      .box.about-boxes(ng-repeat='manager in managers')
+        a.manager-name(href='/#/people/{{manager.id}}')
+          p {{manager.name}}
+        p {{manager.position}}
+        p
+          a(href='mailto:{{manager.email}}') {{manager.email}}
+        p {{manager.phone}} 
+        img(ng-src='{{manager.photo}}')
+    section#contact(ng-show='tabs.active=="Contact"')
+      header
+        h1 Contact Info
+      .box.about-boxes
+        h2 Station Phone:
+        p (773) 325-7308
+        br
+        h2 Station Fax:
+        p (773) 325-4133
+        br
+        h2 Station Address:
+        p Radio DePaul
+        p 2250 N. Sheffield Avenue, Suite 317 
+        p Chicago, IL 60614
+    section#mission_statement(ng-show='tabs.active=="Mission Statement"')
+      header
+        h1 Mission Statement
+      .about-boxes
+        p
+          | Act as an educational and practical training ground for those students who are interested in pursuing radio as a career.
+        br
+        p
+          | Entertain and Inform our audience through innovative and consistent music and non-music programming.
+        br
+        p
+          | Serve the DePaul community by promoting University services, events, and activities.
+        br
+        p
+          | Work cooperatively with other campus groups and organizations to promote and support a varied and exciting collegiate experience for students.
+    section#join(ng-show='tabs.active=="Join Radio DePaul"')
+      header
+        h1 Join Radio DePaul
+      .about-boxes
+        .smallBar.eligibility-title Eligibility for Participation
+        p
+          | Only full-time students in good academic standing (2.5 GPA or higher) at DePaul are eligible for FULL membership in Radio DePaul.
+        br
+        p
+          | University faculty members, staff and members of the community also shall be eligible for ASSOCIATE membership through petition to the Student Advisory Committee.
+        br
+        p Membership constitutes active participation in the organization.
+        br
+        p
+          | Radio DePaul shall not discriminate against any person on the basis of race, color, sex, sexual preference, disabilities, national origin, religious affiliation, or beliefs.
+        br
+        .smallBar.eligibility-title Rights and Privileges of Membership
+        p
+          | The number of persons who may be members of Radio DePaul may be limited depending on the availability of on or off-air positions.
+        br
+        p
+          | Only FULL members of the organization shall be eligible to hold management positions.
+        br
+        br
+        center
+          a#about-apply(href='http://radiodepaul.herokuapp.com/application') Apply
+    section#sponsor(ng-show='tabs.active=="Sponsor Radio DePaul"')
+      header
+        h1 Sponsor Radio DePaul
+      .about-boxes
+        p
+          | Sponsoring Radio DePaul is easy and affordable. We have a number of packages that may be right for your organization or business. It is also possible to design your own custom sponsorship package. Please check out our
+          a(href='depaul_media_hit.pdf') media kit
+          | and contact us with any questions you have. Keep in mind that in addition to being heard on our site, Radio DePaul is one of handful of college stations that is available on the very popular iHeartRadio app and website. In other words, your organization or businesses name is going to reach a lot of people. Thanks for considering Radio DePaul, Chicago's College Connection!
+        br
+        p
+          a#media-kit.button.button-rounded.button-flat-primary.button-medium(href='depaul_media_kit.pdf') View/Download Media Kit
+        br
+        ul#scott-contact
+          li
+            h2
+              | Contact Information
+              h2
+          li Scott Vyverman, General Manager
+          li
+            | Email:
+            a(href='mailto:radiodepaulmanagement@gmail.com') radiodepaulmanagement@gmail.com
+          li Phone: (773) 325-7399
+          li Fax: (773) 325-4133
+    section#awards(ng-show='tabs.active=="Awards and Recognition"')
+      header
+        h1 Awards & Recognition
+      .content
+        ul.segmented
+          li(ng-repeat='award in awards')
+            h2 {{award.name}}
+            p {{award.for}}
+            p {{award.year}}
+            p {{award.award_organization.name}}
+            p {{award.award_organization.url}}

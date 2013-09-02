@@ -1,0 +1,22 @@
+#left-side-nav-holder
+  ul#left-side-nav
+    li
+      a(href= '/#', ng-class = 'navClass("home")') Home
+    li
+      a(href= '/#/schedule/', ng-class = 'navClass("schedule")') Schedule
+    li
+      a(href= '/#/shows/',  ng-class = 'navClass("shows")') Shows
+    li
+      a(href= '/#/people/', ng-class = 'navClass("people")') Staff
+#right-side-nav-holder
+  ul#right-side-nav
+    li
+      a(href= '/#/media/', ng-class = 'navClass("media")') Media
+    li
+      a(href= '/#/about/', ng-class = 'navClass("about")') About
+    li
+      a(href= 'http=//radiodepaul.herokuapp.com/application') Apply
+    li
+      a#launchPlayer(href = "javascript=void(0);", ng-click = 'playMusic()', ng-class = '(active= playing)') Listen Now
+a(href= '/sports/', target= "_self" )
+  img#sports-ball(src = "/img/ball2.png")

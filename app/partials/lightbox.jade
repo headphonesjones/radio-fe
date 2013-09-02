@@ -1,0 +1,6 @@
+#lightbox
+  #image-container-lightbox(ng-repeat='photo in photos')
+    img.thumbnail-image(ng-src='http://farm{{photo.farm}}.static.flickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_t.jpg', ng-click='setCurrentPhoto(photo)')
+  #previous-arrow
+  img(ng-src='http://farm{{currentPhoto.farm}}.static.flickr.com/{{currentPhoto.server}}/{{currentPhoto.id}}_{{currentPhoto.secret}}_m.jpg')
+  #next-arrow

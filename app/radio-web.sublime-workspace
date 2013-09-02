@@ -1,0 +1,468 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"countryCtrl"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"order_",
+				"order_subtotal"
+			],
+			[
+				"ne",
+				"net_weight"
+			],
+			[
+				"new",
+				"net_weight"
+			],
+			[
+				"attr",
+				"attrs_out"
+			],
+			[
+				"t",
+				"tElement"
+			],
+			[
+				"input",
+				"inputElement"
+			],
+			[
+				"inp",
+				"inputElement"
+			],
+			[
+				"edit",
+				"edit-in-place"
+			],
+			[
+				"ch",
+				"changeObject"
+			],
+			[
+				"dir",
+				"directives"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "partials/webcam.jade",
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/nathan/code/radio-fe/vendor/scripts/modernizr-2.6.2-respond-1.1.0.min.js",
+			"settings":
+			{
+				"buffer_size": 19485,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.jade",
+			"settings":
+			{
+				"buffer_size": 2341,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sftp",
+				"SFTP: Show Panel"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/nathan/code/learn/app/index.html",
+		"/home/nathan/code/learn/app/scripts/app.js",
+		"/home/nathan/code/old_target/models.py",
+		"/home/nathan/code/old_target/views.py",
+		"/home/nathan/code/target/order/views.py",
+		"/home/nathan/code/old_target/sftp-config.json",
+		"/home/nathan/code/old_target/pdf/pdf.py",
+		"/home/nathan/code/target/order/models.py",
+		"/home/nathan/code/target/order/views.pyc",
+		"/home/nathan/.config/sublime-text-3/Packages/User/sftp_servers/target",
+		"/home/nathan/code/target/angular/static/app/js/directives.js",
+		"/home/nathan/file",
+		"/home/nathan/Desktop/update.js",
+		"/home/nathan/code/target/angular/static/app/partials/company-list.html",
+		"/home/nathan/code/target/templates/angular/index.html",
+		"/home/nathan/code/target/angular/static/app/partials/company-detail.html",
+		"/home/nathan/code/target/angular/static/app/js/controllers.js",
+		"/home/nathan/code/target/templates/crm/company_detail.html",
+		"/home/nathan/code/target/angular/static/app/js/app.js",
+		"/home/nathan/code/target/crm/models.py",
+		"/home/nathan/code/target/angular/static/app/lib/restangular.min.js",
+		"/home/nathan/code/target/angular/static/app/lib/angular/angular.min.js",
+		"/home/nathan/code/target/angular/static/app/less/navs.less",
+		"/home/nathan/code/target/settings.py",
+		"/home/nathan/code/target/angular/static/app/less/target/header.less",
+		"/home/nathan/code/target/templates/cms/about.html",
+		"/home/nathan/code/target/templates/cms/home.html",
+		"/home/nathan/code/target/static/cms/css/target.css",
+		"/home/nathan/code/target/accounting/reports/income.py",
+		"/home/nathan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/nathan/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"add_sum",
+			"decimal",
+			"fob",
+			"currency_form",
+			"item.price",
+			"net_wei",
+			"order_net_we",
+			"order_ne",
+			"order",
+			"net_weight",
+			"order_total",
+			"add_main",
+			"order_items",
+			"fob",
+			"quantity",
+			"fob",
+			"injector",
+			"http",
+			"patch",
+			"console",
+			"options",
+			"email",
+			"1px solid",
+			"2px",
+			"nav-tabs > li > a",
+			"border-bottom: 1px",
+			"stacked",
+			"thumbnails",
+			"meet",
+			"/home",
+			"<<<",
+			"def packing_list",
+			"packing_List",
+			"POProc",
+			"POP",
+			"<<<",
+			"volu"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"webapps"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "partials/webcam.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/nathan/code/radio-fe/vendor/scripts/modernizr-2.6.2-respond-1.1.0.min.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 19485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"project": "radio-web.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"index",
+				"app/index.jade"
+			],
+			[
+				"_p",
+				"source/partials/_player.haml"
+			],
+			[
+				"footer",
+				"source/partials/_footer.haml"
+			],
+			[
+				"nav",
+				"source/partials/_nav.haml"
+			],
+			[
+				"layout",
+				"source/layouts/layout.haml"
+			],
+			[
+				"views",
+				"views.py"
+			],
+			[
+				"contr",
+				"angular/static/app/js/controllers.js"
+			],
+			[
+				"partials/com",
+				"angular/static/app/partials/company-detail.html"
+			],
+			[
+				"compan",
+				"templates/crm/company_detail.html"
+			],
+			[
+				"inde",
+				"templates/angular/index.html"
+			],
+			[
+				"app",
+				"angular/static/app/js/app.js"
+			],
+			[
+				"models.py",
+				"crm/models.py"
+			],
+			[
+				"app.js",
+				"angular/static/app/js/app.js"
+			],
+			[
+				"company",
+				"templates/crm/company_detail.html"
+			],
+			[
+				"sett",
+				"settings.py"
+			],
+			[
+				"about",
+				"templates/cms/about.html"
+			],
+			[
+				"home",
+				"templates/cms/home.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

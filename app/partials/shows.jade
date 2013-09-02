@@ -1,0 +1,16 @@
+section.shows-section
+  header
+    h1 Active Shows
+    input.search(ng-model='showSearchText')
+    image.search-icon(src='/img/search.png')
+  ul.segmented.dashed
+    li(ng-repeat='show in filteredItems = (shows | filter:showSearchFilter) | startFrom:currentPage*pageSize | limitTo:pageSize')
+      a(href='/#/shows/{{show.id}}')
+        .small-bar
+          img(ng-src='{{show.photo_thumb}}')
+          span.show-name {{show.title}}
+          span.show-hosts(ng-show='show.hosts')
+            span.no-bold with
+            span(ng-repeat='host in show.hosts')
+              | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}{{host.name}}
+  pagination(page-size='10', count='filteredItems.length')

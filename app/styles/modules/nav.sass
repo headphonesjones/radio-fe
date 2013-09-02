@@ -1,0 +1,74 @@
+@import "all"
+@import "compass/css3/transition"
+@import "compass/css3/transform"
+
+
+nav
+  height: 110px
+  text-transform: uppercase
+  margin-bottom: 20px
+  ul
+    margin-top: 34px
+    li
+      display: inline
+      a
+        float: left
+        height: 16px
+        line-height: 16px
+        padding: 10px 12px
+        font-weight: $bold
+        @include font-size(1.4)
+        border-top: solid 4px
+        border-bottom: solid 4px
+        &:hover
+          text-decoration: none
+#left-side-nav-holder
+  position: absolute
+  left: -75px
+  width: 50%
+
+#left-side-nav
+  float: right
+  li a
+    color: $red
+    border-color: $red
+    &:hover, &.active
+      color: darken($red, 15%)
+      border-color: darken($red, 15%)
+
+#right-side-nav
+  position: absolute
+  left: 50%
+  margin-left: 75px
+  width: 500px
+  li a
+    color: $blue
+    border-color: $blue
+    &:hover, &.active
+      color: darken($blue, 15%)
+      border-color: darken($blue, 15%)
+
+#logo
+  width: 110px
+  height: 110px
+  position: absolute
+  left: 50%
+  margin-left: -55px
+  z-index: 2
+  @include transition-duration(2.5s)
+  &:hover
+    @include rotate(360deg)
+
+#sports-ball
+  width: 90px
+  position: absolute
+  top: -5px
+  left: 85%
+
+#social-icons
+  position: absolute
+  left: 10%
+  top: 2px
+  z-index: 2
+  img
+    margin-left: 2px

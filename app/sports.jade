@@ -1,0 +1,108 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    title Radio DePaul Sports
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', type='text/css', href='/css/sports.css')
+    link(rel='shortcut icon', type='image/x-icon', href='../favicon.ico')
+    script(type='text/javascript', src='/js/webflow.js', defer='defer')
+  body
+    .section.header
+      .w-container
+        .w-row
+          .w-col.w-col-2.company-column
+            img#logo(src='../img/logo.png')
+            img#sports-logo(src='../img/athletics-logo.svg')
+          .w-col.w-col-10.nav-bar
+            a.nav-link(href='#') Blue Demon Weekly
+            a.nav-link(href='#') Blue Demon Play by Play
+            a.nav-link(href='#podcasts') Podcasts
+            a.nav-link(href='http://www.depaulbluedemons.com/') DePaul Athletics Home
+            a.nav-link(href='http://www.depaulbluedemons.com/') Radio DePaul
+    div
+      .hero-bg
+        .w-container
+          h1#page-nav-Section-1 This is what we play for!
+          .subtitle Men's basketball game at the Allstate Arena
+    .section
+      .w-container
+        .w-row(style='position: relative; bottom: 80px;')
+          .w-col.w-col-6
+            h3 DePaul Athletics Feed
+            .section-description Keep up with the latest in DePaul Athletics.
+          .w-col.w-col-6.right-col
+            a.more-link(href='http://www.depaulbluedemons.com/s-finder/depa-s-finder.html', target='_self') More DePaul Sports Info
+        .w-row.snippet-row
+          .w-col.w-col-3.w-col-small-6
+            a.w-inline-block.snippet(href='http://www.depaulbluedemons.com/sports/c-track/spec-rel/081513aaa.html')
+              #snippet1.snippet-img
+              .snippet-text-section
+                .snippet-title Track
+                .snippet-text DePaul Track and Field Primed to Seize the Moment in New BIG EAST
+          .w-col.w-col-3.w-col-small-6
+            a.w-inline-block.snippet(href='http://www.depaulbluedemons.com/sports/c-xc/spec-rel/081513aaa.html')
+              #snippet2.snippet-img
+              .snippet-text-section
+                .snippet-title Cross Country
+                .snippet-text DePaul Track and Field Primed to Seize the Moment in New BIG EAST
+          .w-col.w-col-3.w-col-small-6
+            a.w-inline-block.snippet(href='http://www.depaulbluedemons.com/sports/w-soccer/spec-rel/081513aac.html')
+              #snippet3.snippet-img
+              .snippet-text-section
+                .snippet-title Women's Soccer
+                .snippet-text DePaul Comes Out Shooting in 3-2 Exhibition Loss to Northwestern
+          .w-col.w-col-3.w-col-small-6
+            a.w-inline-block.snippet(href='http://www.depaulbluedemons.com/sports/m-soccer/spec-rel/081313aac.html')
+              #snippet4.snippet-img
+              .snippet-text-section
+                .snippet-title Men's Soccer
+                .snippet-text BIG EAST Conference Announces Preseason Coaches' Poll
+    .content-bg
+      .w-container
+        h2#page-nav-Section-2 We are calling the shots. Every game. Every week.
+    .section
+      .w-container
+        .w-row
+          .w-col.w-col-6
+            h3 Opportunities at Radio DePaul
+            p
+              | Whether your sitting inside the pressbox at Cacciatore Stadium broadcasting Soccer, on the court announcing a men's basketball game at the Allstate Arena, or interviewing our DePaul's President Dr. Dennis Holtschneider, Radio DePaul is here to open doors for you. Offering students the opportunities of their dreams.
+            br
+            p
+              | You always hear that college is what you make it. So why not make it fun?  Why not leave your mark? Being apart of the Radio DePaul family is more than just getting to broadcast your show, it's about making connections and creating opportunities that you may never have gotten a chance to before.
+          .w-col.w-col-6
+            .w-row
+              .w-col.w-col-6.two-image-holder
+                img.img-example(src='../img/c-stadium.png', width='130', alt='Cacciatore Stadium')
+                img.img-example(src='../img/pres-interview.png', width='130', alt='President Dennis Holtschneider Interview')
+              .w-col.w-col-6.two-image-holder
+                img.img-example(src='../img/w-bball-coach.png', width='130', alt='Women"s Basketball Coach Interview')
+                img.img-example(src='../img/broadcast.png', width='130', alt='image-placeholder.svg')
+    .content-bg.two
+      .w-container
+        h2#page-nav-Section-3 And no one is getting in our way.
+    #podcasts.section
+      .w-container
+        .w-row
+          .w-col.w-col-12
+            h3 Podcasts
+      .section.footer
+        .w-container
+          .w-row.secondary-row
+            .w-col.w-col-8.w-col-small-6
+              h3 Join the Radio DePaul Sports Team
+              p
+                | Want to get in on the action?  Want to cover DePaul athletic games and events?  Well here is your chance!  Apply to Radio DePaul and specify your interest in sports broadcasting and you may just find yourself at front row and broadcasting the game live over Radio DePaul!
+            .w-col.w-col-4.w-col-small-6.button-column
+              a.button(href='http://radiodepaul.herokuapp.com/application') Apply Now!
+      .section
+        .w-container
+          .w-row
+            .w-col.w-col-6.left-footer-col
+              .footer-text © Radio DePaul Sports. All Rights Reserved.
+            .w-col.w-col-6.footer-nav-bar
+              a.footer-link(href='#') Radio DePaul
+              a.footer-link(href='#') Blue Demon Weekly
+              a.footer-link(href='http://www.depaulbluedemons.com/') DePaul Athletics

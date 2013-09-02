@@ -1,0 +1,261 @@
+@import "all"
+@import "compass/css3/transition"
+
+
+audio
+  display: none
+
+#player_fixed
+  position: fixed
+  height: 60px
+  width: 100%
+  padding: 10px 0
+  bottom: 0
+  left: 0
+  color: $white
+  background-color: rgba($dkgray, 0.75)
+  z-index: 100
+  padding-top: 3px
+  border-top: 3px solid $blue
+  @include transition(all 0.5s ease-in-out)
+  &:hover
+    background-color: $dkgray
+
+  #now_playing_light
+    margin-top: 10px
+    margin-left: 10px
+    width: 41px
+    height: 35px
+    background-color: $red
+    border: 3px solid $dkgray
+    outline: 1px solid $red
+    text-align: center
+    font-size: 16px
+    line-height: 16px
+    padding: 4px 1px
+    float: left
+    p
+      margin-top: 1px
+
+  #on-air-show-text
+    position: relative
+    color: darken($red, 15%)
+    text-shadow: 2px 2px 0 darken($dkgray, 10%)
+    top: 8px
+
+  #now-playing-text-container
+    margin-top: 12px
+
+  #image-title-container
+    position: relative
+    bottom: 10px
+
+  #playing-genres
+    text-shadow: 1px 1px 0 darken($dkgray, 10%)
+
+  #now_playing
+    img
+      float: left
+      margin: 10px
+  #showtitle
+    float: left
+    max-width: 340px
+    h2
+      font-size: 1.15em
+
+  #button-holder
+    float: right
+    position: fixed
+    bottom: 0px
+    right: 0px
+    width: 200px
+    a
+      margin-right: 20px
+
+  .play-btn
+    margin-left: auto
+    margin-right: auto
+    width: 100px
+    text-align: center
+
+  h1, h2
+    font-weight: $regular
+    line-height: 130%
+    a
+      color: $white
+      &:hover
+        color: $blue
+        text-decoration: none
+  h2
+    line-height: 16px
+    font-weight: $regular
+    em
+      color: $red
+
+#chatroom
+  position: fixed
+  right: 0
+  bottom: 75px
+  z-index: 99
+  width: 250px
+  height: 335px
+  margin-bottom: 0
+
+//#play-button
+  background-image: url('../../img/playbutton.png')
+  background-size: 35px 35px
+  width: 35px
+  height: 35px
+  display: block
+  margin-left: auto
+  margin-right: auto
+  margin-top: 10px
+  position: relative
+  right: 22px
+  top: 5px
+  &:hover
+  cursor: pointer
+
+//#pause-button
+  background-image: url('../../img/pause-red.png')
+  background-size: 35px 35px
+  width: 35px
+  height: 35px
+  display: block
+  margin-left: auto
+  margin-right: auto
+  position: relative
+  bottom: 30px
+  left: 22px
+  &:hover
+  cursor: pointer
+
+#hidden-player
+  position: relative
+  left: 9999px
+
+#on-air-host-list
+  font-size: .95em
+
+#button-holder
+  z-index: 100
+  position: relative
+  bottom: 60px
+  #webcam-button
+    margin-top: 3px
+    margin-right: 10px
+    color: $white
+    width: 120px
+    font-size: .8em
+    &:hover
+      color: $dkgray
+      cursor: pointer
+      text-decoration: none
+  #streamfile-button
+    margin-top: 3px
+    margin-right: 10px
+    color: $white
+    width: 120px
+    font-size: .8em
+    margin-top: 5px
+    &:hover
+      color: $dkgray
+      cursor: pointer
+      text-decoration: none
+  #chat-button
+    position: relative
+    top: 2px
+    margin-right: 150px
+    color: $white
+    width: 120px
+    font-size: .8em
+    &:hover
+      color: $dkgray
+      cursor: pointer
+      text-decoration: none
+  #player-button
+    position: relative
+    top: 2px
+    margin-right: 150px
+    color: $white
+    width: 120px
+    font-size: .8em
+    margin-top: 5px
+    &:hover
+      color: $dkgray
+      cursor: pointer
+      text-decoration: none
+
+#playing-host-names
+  color: $white
+  position: relative
+  top: 1px
+  &:hover
+    color: $blue
+    text-decoration: none
+
+#host-text
+  font-size: .90em
+  text-shadow: 1px 1px 0 darken($dkgray, 10%)
+
+#now_playing
+  margin-top: 10px
+
+#play-button
+  position: fixed
+  left: 500px
+  bottom: 10px
+  width: 45px
+  height: 45px
+  &:hover
+    cursor: pointer
+    color: white
+    text-decoration: none
+
+#pause-button
+  position: fixed
+  bottom: 10px
+  left: 500px
+  width: 45px
+  height: 45px
+  &:hover
+    cursor: pointer
+    color: white
+    text-decoration: none
+
+#pause-play-buttons a
+  &:hover
+    color: white
+    text-decoration: none
+
+#play-icon
+  position: relative
+  bottom: 36px
+  left: 2px
+  &:hover
+    color: white
+    text-decoration: none
+
+#stop-icon
+  position: relative
+  bottom: 37px
+  font-weight: bold
+  &:hover
+    color: white
+    text-decoration: none
+
+#chat-box
+  z-index: 999
+
+#webcam-streamfile-box
+  width: 250px
+  height: 70px
+  position: fixed
+  right: 10%
+  bottom: -4px
+
+#chat-player-box
+  width: 200px
+  height: 70px 
+  position: relative
+  top: 4px

@@ -1,0 +1,46 @@
+#show
+  h1#name {{show.title}}
+  .photoBox.left
+    img(ng-src='{{show.photo_medium}}')
+  .right.half
+    section(ng-show='show.hosts')
+      header
+        h1 Hosted By
+      .show-hosts-container
+        ul#host-list
+          li(ng-repeat='host in show.hosts')
+            p
+              a(href='/#/people/{{host.id}}')
+                | {{host.name}}
+                img.show-host-photo(ng-src='{{host.photo_thumb}}')
+    section(ng-show='show.genres')
+      header
+        h1 Genres
+      .content
+        p {{show.genres}}
+    section(ng-show='show.scheduled_slots')
+      ul.content
+        li
+          p Scheduled At
+        li(ng-repeat='slot in show.scheduled_slots')
+          p {{slot.slot}}
+    section(ng-show='show.twitter || show.facebook || show.email')
+      header
+        h1 Follow {{show.title}}
+      ul#personshowSocial
+        li.twitter(ng-show='show.twitter')
+          a(href='http://twitter.com/{{show.twitter}}', target='_blank')
+        li.facebook(ng-show='show.facebook')
+          a(href='http://facebook.com/{{show.facebook}}', target='_blank')
+        li.email(ng-show='show.email')
+          a(href='mailto:{{show.email}}')
+  section.clear(ng-show='show.long_description')
+    header
+      h1 Description
+    .content
+      p(ng-bind='show.long_description | newlines')
+  section#person-tweet(twitter='show.twitter')
+  section.clear
+    header
+      h1 Recent Posts
+    .content(disqus='show.title')

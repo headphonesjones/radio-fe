@@ -1,0 +1,7 @@
+section
+  .content
+    header.headline
+      h1 {{news.headline}}
+      date {{news.published_at}}
+      div {{news.author.name}}
+    div(ng-bind-html='news.content')
