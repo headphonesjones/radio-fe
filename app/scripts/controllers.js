@@ -57,6 +57,9 @@ controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', func
 }]);
 
 controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', function($scope, $rootScope, Shows){
+
+	$scope.iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+
 	$scope.playing = false;
 
 	Shows.onair(function(data){$scope.show = data;});
