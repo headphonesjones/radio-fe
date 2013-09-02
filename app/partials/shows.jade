@@ -10,7 +10,7 @@ section.shows-section
           img(ng-src='{{show.photo_thumb}}')
           span.show-name {{show.title}}
           span.show-hosts(ng-show='show.hosts')
-            span.no-bold with
+            span.no-bold &nbsp; with
             span(ng-repeat='host in show.hosts')
               | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}{{host.name}}
   pagination(page-size='10', count='filteredItems.length')
