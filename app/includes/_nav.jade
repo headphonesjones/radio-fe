@@ -20,3 +20,14 @@
       a#launchPlayer(href = "javascript=void(0);", ng-click = 'playMusic()', ng-class = '(active= playing)') Listen Now
 a(href= 'http://radio.depaul.edu/sports.html', target= "_self" )
   img#sports-ball(src = "/img/ball2.png")
+#mobile-select
+  select(onchange="if (this.value) window.location.href=this.value")
+    option(value="/#") Home
+    option(value='/sports.html') Sports
+    option(value='/#/schedule/') Schedule
+    option(value= '/#/shows/') Shows
+    option(value= '/#/people/') Staff
+    option(value= '/#/media/') Media
+    option(value= '/#/about/') About
+    option(value= 'http://radiodepaul.herokuapp.com/application') Apply
+    Option(value= "/#/webcam") Watch Live!

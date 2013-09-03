@@ -1,5 +1,9 @@
 @import "all"
 
+@media only screen and (max-width: 1800px)
+  #mobile-select
+    visibility: hidden
+
 @media only screen and (max-width: 1200px)
   #sports-ball
     left: 90%
@@ -87,6 +91,17 @@
   #showtitle
     z-index: 0
 
+  #sports-ball
+    display: none
+
+  #left-side-nav-holder, #right-side-nav-holder
+    display: none
+  #home_image
+    position: relative
+    bottom: 120px
+  .container
+    position: relative
+    bottom: 120px
 
   #play-button
     bottom: 49px
@@ -107,3 +122,12 @@
     position: relative
     top: 34px
     right: 70px
+
+  #mobile-select
+    visibility: visible
+
+
+  #logo
+    position: relative !important
+    left: 30% !important
+    top: 10px
