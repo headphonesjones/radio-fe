@@ -59,6 +59,13 @@ controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', func
 controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', function($scope, $rootScope, Shows){
 
 	$scope.iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+    
+    /* HIDE OLD PLAY BUTTON?
+
+	if ($scope.iOS == true){
+		document.getElementById('play-pause-buttons').style.display = "none";
+	}
+    */
 
 	$scope.playing = false;
 
