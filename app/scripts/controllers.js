@@ -60,13 +60,6 @@ controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', func
 
 	$scope.iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
     
-    /* HIDE OLD PLAY BUTTON?
-
-	if ($scope.iOS == true){
-		document.getElementById('play-pause-buttons').style.display = "none";
-	}
-    */
-
 	$scope.playing = false;
 
 	Shows.onair(function(data){$scope.show = data;});
@@ -80,13 +73,15 @@ controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', func
 	});
 
 	$scope.playMusic = function() {
-		if ($scope.soundObject) {
-			$scope.soundObject.play();
-		} else {
-			$scope.loadSM2();
+		if ($scope.iOS = false) {
+			if ($scope.soundObject) {
+				$scope.soundObject.play();
+			} else {
+				$scope.loadSM2();
+			}
+			$scope.playing = true;
+		 	$rootScope.$broadcast('player', 'playing');
 		}
-		$scope.playing = true;
-	 	$rootScope.$broadcast('player', 'playing');
 	}
 
 	$scope.pauseMusic = function() {
