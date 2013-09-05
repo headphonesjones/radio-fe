@@ -40,14 +40,17 @@ controllers.controller('HomeController', ['$scope', 'News', 'Events', 'Page', fu
 	Events.query(function(data){$scope.events = data;});
 }]);
 
+
 controllers.controller('NewsListController', ['$scope', 'News', 'Page', function($scope, News, Page){
     Page.setTitle('News');
 	News.query(function(data){$scope.news = data;});
 }]);
 
+
 controllers.controller('NewsStoryController', ['$scope', 'News', 'Page', function($scope, News, Page){
 	News.get(function(data){$scope.news = data;Page.setTitle($scope.news.headline)});
 }]);
+
 
 controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', function($scope, Schedule, Page){
 	Page.setTitle('Schedule');
@@ -55,6 +58,7 @@ controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', func
 	$scope.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 	$scope.selected = $scope.days[new Date().getDay()];
 }]);
+
 
 controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', function($scope, $rootScope, Shows){
 
@@ -73,7 +77,7 @@ controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', func
 	});
 
 	$scope.playMusic = function() {
-		if ($scope.iOS = false) {
+		if ($scope.iOS == false) {
 			if ($scope.soundObject) {
 				$scope.soundObject.play();
 			} else {
@@ -111,6 +115,7 @@ controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', func
    	
 }]);
 
+
 controllers.controller('AboutController', ['$scope', 'Managers', 'Awards', '$routeParams', 'Page', function($scope, Managers, Awards, $routeParams, Page){
 	Page.setTitle('About');
 	var startTab = $routeParams.tab || "managers"
@@ -126,11 +131,13 @@ controllers.controller('AboutController', ['$scope', 'Managers', 'Awards', '$rou
 	Awards.query(function(data){$scope.awards = data;}); //401 error from the server
 }]);
 
+
 controllers.controller('MediaController', ['$scope', 'Flickr', '$http', 'Page', function($scope, Flickr, $http, Page){
     Page.setTitle('Media');
 	$scope.photosets = ['72157627431049317', '72157627556017792', '72157627638190531', '72157627555308552', '72157627431314949', '72157627431238035'];
 
 }]);
+
 
 controllers.controller('ShowListController', ['$scope', 'Shows', 'Page', function($scope, Shows, Page){
     Page.setTitle('Shows');
@@ -144,9 +151,11 @@ controllers.controller('ShowListController', ['$scope', 'Shows', 'Page', functio
 	};
 }]);
 
+
 controllers.controller('ShowController', ['$scope', 'Shows', 'Page', function($scope, Shows, Page){
 	Shows.get(function(data){$scope.show = data;Page.setTitle($scope.show.title)});
 }]);
+
 
 controllers.controller('StaffListController', ['$scope', 'Staff', 'Page', function($scope, Staff, Page){
     Page.setTitle('Staff');
@@ -170,9 +179,11 @@ controllers.controller('StaffListController', ['$scope', 'Staff', 'Page', functi
 	};
 }]);
 
+
 controllers.controller('StaffController', ['$scope', 'Staff', 'Page', function($scope, Staff, Page){
 	Staff.get(function(data){$scope.person = data;Page.setTitle($scope.person.name)});
 }]);
+
 
 controllers.controller('ChatController', ['$scope', '$sce', function($scope, $sce){
 	$scope.trustSrc = function(src) {
@@ -190,15 +201,18 @@ controllers.controller('ChatController', ['$scope', '$sce', function($scope, $sc
 
 }]);
 
+
 controllers.controller('PopUpPlayerController', ['$scope', 'PopupPlayer', function($scope, PopupPlayer){
 	PopupPlayer.get(function(data){$scope.show = data;});
 	$scope.popuplayer = data;
 
 }]);
 
+
 controllers.controller('HeadController', ['$scope', 'Page', function($scope, Page) {
 	$scope.Page = Page;
 }]);
+
 
 controllers.controller('WebcamController', ['$scope', function($scope){
     
