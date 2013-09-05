@@ -7,7 +7,7 @@ section.shows-section
     li(ng-repeat='show in filteredItems = (shows | filter:showSearchFilter) | startFrom:currentPage*pageSize | limitTo:pageSize')
       a(href='/#/shows/{{show.id}}')
         .small-bar
-          img(ng-src='{{show.photo_thumb}}')
+          img.show-list-img(ng-src='{{show.photo_thumb}}')
           span.show-name {{show.title}}
           span.show-hosts(ng-show='show.hosts')
             span.no-bold &nbsp; with
