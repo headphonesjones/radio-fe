@@ -1,10 +1,10 @@
 section#schedule
     header
       h1 Current Schedule
-      ul
+      ul.schedule-day-links
         li(ng-repeat='day in days', ng-class='{selected: $parent.selected == day}', ng-click='$parent.selected = day') {{day|truncate:3:""}}
     .content
-      h1.headline {{selected}}
+      h1.headline#current-day-headline {{selected}}
       ul#schedule-list
         li(ng-hide='filteredShows.length')
           p.show-name No shows today
@@ -12,14 +12,14 @@ section#schedule
           h3.show-name
             a.highlight-color(href='/#/shows/{{show.show.id}}') {{show.show.title}}
             span(ng-show='show.show.genres')  | {{show.show.genres}}
+            p.show-djs
+            | HOSTED BY:
+            span(ng-repeat='host in show.show.hosts')
+              | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}
+              a.highlight-color(href='/#/people/{{host.id}}') {{host.name}}
           a(href='/#show/{{show.show.id}}')
             img(ng-src='{{show.show.photo_small}}')
           #time-holder
             .schedule-time {{show.start_time}}
             .schedule-time {{show.end_time}}
-          p.show-djs
-            | with
-            span(ng-repeat='host in show.show.hosts')
-              | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}
-              a.highlight-color(href='/#/people/{{host.id}}') {{host.name}}
           p.show-bio {{show.show.short_description}}

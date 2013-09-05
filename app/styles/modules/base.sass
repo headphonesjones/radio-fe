@@ -260,12 +260,14 @@ h3.show-name
   border-bottom: 1px dotted #272123
   padding: 4px 0
 
-
+.show-djs
+  position: absolute
 
 #schedule
   .content
     padding: 0
   .show-bio
+    padding-right: 10px
     position: absolute
     bottom: 2px
     left: 135px
@@ -283,10 +285,12 @@ h3.show-name
     &:last-child
       border-bottom: none
   img
-    position: absolute
     height: 110px
-    right: 0
-    top: 0
+    float: left
+
+#current-day-headline
+  padding-top: 10px
+  padding-bottom: 10px
 
 #time-holder
   float: left
@@ -296,7 +300,8 @@ h3.show-name
     color: #F2F2F2
     padding: 4px
     background-color: #cf671c
-    margin: 5px
+    margin-left: 5px
+    margin-bottom: 5px
     text-align: center
 
 /* ---------- *
@@ -316,6 +321,11 @@ h3.show-name
 
 #about-ul li:hover, #about-ul li.active
   background-color: $red
+
+.schedule-day-links
+  position: relative
+  bottom: 0px
+  text-transform: uppercase
 
 #contact 
   height: 270px

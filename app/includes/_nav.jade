@@ -23,11 +23,14 @@ a(href= 'http://radio.depaul.edu/sports.html', target= "_self" )
 #mobile-select
   select(onchange="if (this.value) window.location.href=this.value")
     option(value="/#") Home
-    option(value='/sports.html') Sports
     option(value='/#/schedule/') Schedule
     option(value= '/#/shows/') Shows
     option(value= '/#/people/') Staff
     option(value= '/#/media/') Media
     option(value= '/#/about/') About
+    option(value='/sports.html') Sports
     option(value= 'http://radiodepaul.herokuapp.com/application') Apply
     Option(value= "/#/webcam") Watch Live!
+
+audio(controls=true, ng-show = "iOS", preload="none")
+    source(src="http://rock.radio.depaul.edu:8000/stream/1/", type="audio/mpeg")
