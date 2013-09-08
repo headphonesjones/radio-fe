@@ -8,7 +8,7 @@
     ul
       li.shows-hosted(ng-repeat='show in person.shows')
         a(href='/#/shows/{{show.id}}')
-          img(ng-src='{{show.show_photo_thumb}}', height='50', width='50')
+          img(ng-src='{{show.photo_thumb}}', height='50', width='50')
           p
             | {{show.title}}
   section.right.person-info.social-box
