@@ -51,7 +51,7 @@ flickr.directive('photoset', function($http) {
     template: '<div class="thumbnail">' +
                 '<h3>{{photoset.title._content}}</h3>' +
                    '<div class="thumbnail-image" ng-click="showPhotoset(photoset);">' +
-                     '<img ng-src="http://farm{{photoset.farm}}.static.flickr.com/{{photoset.server}}/{{photoset.primary}}_{{photoset.secret}}_m.jpg" width="215" />' +
+                     '<img id="lightbox-image" ng-src="http://farm{{photoset.farm}}.static.flickr.com/{{photoset.server}}/{{photoset.primary}}_{{photoset.secret}}_m.jpg" width="215" />' +
                    '</div>' +
                '</div>',
     scope: {
