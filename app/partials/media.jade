@@ -1,4 +1,10 @@
-iframe(width='100%', src='//www.youtube.com/embed/YbU0H7bIPHg?rel=0', frameborder='0', allowfullscreen='allowfullscreen', id="media-video")
+iframe(width='100%', src='//www.youtube.com/embed/YbU0H7bIPHg?wmode=transparent&rel=0', frameborder='0', allowfullscreen='allowfullscreen', id="media-video")
+section#gallery-thumbnails
+  h1 Image Galleries
+  flickr
+    photoset(ng-repeat="pset in photosets", id="{{pset}}")
+    lightbox
+
 //
 //   <lightbox>
 //  <section id="gallery-thumbnails">

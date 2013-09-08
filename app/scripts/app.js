@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-var myApp = angular.module('radio', ['ngRoute', 'ngSanitize', 'radio.filters', 'radio.services', 'radio.directives', 'radio.controllers', 'ngAnimate', 'ajoslin.promise-tracker', 'ngDisqus']).
+var myApp = angular.module('radio', ['ngRoute', 'ngSanitize', 'radio.filters', 'radio.services', 'radio.directives', 'radio.controllers', 'ngAnimate', 'ajoslin.promise-tracker', 'ngDisqus', 'flickr']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeController'});
     $routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'AboutController'});
