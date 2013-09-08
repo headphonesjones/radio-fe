@@ -2,5 +2,5 @@
   #lightbox-bg(ng-click="visible = false")
   #lightbox-content
     #previous-arrow(ng-click="photoIndex = photoIndex - 1", ng-show="photoIndex > 0")
-    img(ng-src='http://farm{{currentPhoto().farm}}.static.flickr.com/{{currentPhoto().server}}/{{currentPhoto().id}}_{{currentPhoto().secret}}_b.jpg')
+    img(ng-animate="show: 'show'", ng-show="photo == currentPhoto()", ng-repeat="photo in photos", ng-src='http://farm{{photo.farm}}.static.flickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg')
     #next-arrow(ng-click="photoIndex = photoIndex + 1", ng-show="photoIndex < numberOfPhotos - 1");

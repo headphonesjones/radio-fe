@@ -51,6 +51,12 @@ flickr.directive('photoset', function($http) {
       $http.jsonp('http://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=' + photoset.id + '&api_key=8ba7f50062d534406009b45aeb73eb90&jsoncallback=JSON_CALLBACK').
            success(function(data, status, headers, config) {
           flickrCtrl.setPhotos(data.photoset.photo);
+
+           //prefetch images for gallery
+           angular.forEach(data.photoset.photo, function(photo, key){
+             var img = new Image();
+             img.src = 'http://farm' + photo.farm +'.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret +'_b.jpg';
+           });            
        }); 
     }
     }

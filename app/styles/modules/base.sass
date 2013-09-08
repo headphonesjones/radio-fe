@@ -528,6 +528,21 @@ ul#personshowSocial a
  * $LIGHTBOX  *
  * ---------- */
 
+.show-setup 
+  -webkit-transition: 1s linear all /* Safari/Chrome */
+  -moz-transition: 1s linear all /* Firefox */
+  -ms-transition: 1s linear all /* IE10 */
+  -o-transition: 1s linear all /* Opera */
+  transition: 1s linear all /* Future Browsers */
+ 
+  /* The animation preparation code */
+  opacity: 0
+
+.show-setup.show-start 
+  /* The animation code itself */
+  opacity: 1
+
+
 #lightbox-bg
   position: fixed
   top: 0
