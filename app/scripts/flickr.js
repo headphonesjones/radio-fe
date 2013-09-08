@@ -5,31 +5,16 @@ flickr.directive('flickr', function($http) {
   return {
     restrict: 'E',
       controller: function ($scope) {
+        $scope.photos = []
         this.setPhotos = function(photos) {
           $scope.photos = photos;
           $scope.numberOfPhotos = $scope.photos.length;
           $scope.visible = true;
           $scope.photoIndex = 0
-          $scope.setCurrentPhoto();
         }
-        $scope.setCurrentPhoto = function() {
-          $scope.currentPhoto = $scope.photos[$scope.photoIndex];
-          $http.jsonp('http://api.flickr.com/services/rest/?format=json&method=flickr.photos.getSizes&photo_id=' + $scope.currentPhoto.id + '&api_key=8ba7f50062d534406009b45aeb73eb90&jsoncallback=JSON_CALLBACK').
-               success(function(data, status, headers, config) {
-                console.log(data);
-           }); 
+        $scope.currentPhoto = function() {
+          return $scope.photos[$scope.photoIndex];
         }
-        $scope.nextPhoto = function() {
-          if ($scope.photoIndex < $scope.numberOfPhotos - 1) {
-            $scope.photoIndex++;
-            $scope.setCurrentPhoto();
-          }
-        }
-        $scope.prevPhoto = function() {
-          $scope.photoIndex--;
-          $scope.setCurrentPhoto();
-        }
-
       }
   }
 });
@@ -65,7 +50,6 @@ flickr.directive('photoset', function($http) {
     scope.showPhotoset = function (photoset) {
       $http.jsonp('http://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=' + photoset.id + '&api_key=8ba7f50062d534406009b45aeb73eb90&jsoncallback=JSON_CALLBACK').
            success(function(data, status, headers, config) {
-          scope.photos = data.photoset.photo;
           flickrCtrl.setPhotos(data.photoset.photo);
        }); 
     }
