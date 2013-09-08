@@ -22,6 +22,9 @@ head
   //- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
   link(rel = "shortcut icon", type = "image/x-icon", href = "/favicon.ico")
 
+  style.
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
+
   link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cabin")
 
   link(rel='stylesheet', href='css/app.css')
@@ -53,12 +56,11 @@ body
       article(ng-view = true)
       aside#sidebar(ng-controller = 'sidebarController')
         include includes/_sidebar
-
     footer
       include includes/_footer
 
     #player_fixed
-      include includes/_player
+      ng-include(src="'partials/player.html'")
 
 
   //- JavaScript at the bottom for fast page loading
