@@ -7,7 +7,7 @@ section#schedule
       h1.headline#current-day-headline {{selected}}
       ul#schedule-list
         li(ng-hide='filteredShows.length')
-          p.show-name No shows today
+          p.show-name Loading...
         li(ng-repeat='show in filteredShows = (schedule | filter: {days:selected})')
           h3.show-name
             a.highlight-color(href='/#/shows/{{show.show.id}}') {{show.show.title}}
