@@ -57,7 +57,7 @@ directives.directive('pagination', function() {
 
 directives.directive('twitter', function() {
   return {
-	replace: false,
+	  replace: false,
   	restrict: 'EA',
 	scope: {
 		twitter: '=',
@@ -84,3 +84,35 @@ directives.directive('twitter', function() {
     }
   };
 });
+
+directives.directive('podcast', function($sce) {
+  return {
+  	replace: true,
+  	restrict: 'E',
+  	scope: {
+  		podcast: '=',
+  	},
+  	template: '<div class="podcast">' +
+                '<h3>{{podcast.title}}</h3>' +
+                '<h4>{{podcast.contributors}}</h4>' +
+                '<p>{{podcast.description}}</p>' +
+                '<div id="jwplayer_{{podcast.id}}"></div>' +
+  	          '</div>',
+    link: function($scope, element, attrs) {
+    	$scope.url = $sce.trustAsResourceUrl($scope.podcast.file_url);
+    	
+	    $scope.$watch('podcast', function () {
+	    	if ($scope.podcast) {
+		    	jwplayer("jwplayer_"+ $scope.podcast.id).setup({
+		        file: $scope.podcast.file_url,
+		        width: 480,
+		        height: 30,
+		        primary: 'flash'
+		      });
+		    }
+		  });
+
+    }
+  }
+});
+

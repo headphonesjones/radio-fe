@@ -40,6 +40,11 @@
     .content
       p(ng-bind='show.long_description | newlines')
   section#person-tweet(twitter='show.twitter')
+  section
+    header
+      h1 Podcasts
+    .content 
+      podcast(ng-repeat="podcast in show.podcasts", podcast="podcast")
   section.clear
     header
       h1 Recent Posts
