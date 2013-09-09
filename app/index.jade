@@ -52,15 +52,15 @@ body
       include includes/_nav
     img#home_image(ng-controller = 'navCtrl', ng-src = '/img/station.jpg', ng-show = 'isHome()')
 
-    .container
-      article(ng-view = true)
-      aside#sidebar(ng-controller = 'sidebarController')
-        include includes/_sidebar
-    footer
-      include includes/_footer
+  .container
+    article(ng-view = true)
+    aside#sidebar(ng-controller = 'sidebarController')
+      include includes/_sidebar
+  footer
+    include includes/_footer
 
-    #player_fixed
-      ng-include(src="'partials/player.html'")
+  #player_fixed
+    ng-include(src="'partials/player.html'")
 
 
   //- JavaScript at the bottom for fast page loading
