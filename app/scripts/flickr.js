@@ -28,7 +28,7 @@ flickr.directive('lightbox', function() {
   }
 });
 
-flickr.directive('photoset', function($http) {
+flickr.directive('photoset', ['$http', function($http) {
   return {
     require: "^flickr",
     replace: true,
@@ -62,4 +62,4 @@ flickr.directive('photoset', function($http) {
     }
   }
 
-});
+}]);
