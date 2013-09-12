@@ -1,10 +1,10 @@
 var flickr = angular.module('flickr', []);
 
 
-flickr.directive('flickr', function($http) {
+flickr.directive('flickr', ['$http', function($http) {
   return {
     restrict: 'E',
-      controller: function ($scope) {
+      controller: ['$scope', function ($scope) {
         $scope.photos = []
         this.setPhotos = function(photos) {
           $scope.photos = photos;
@@ -15,9 +15,9 @@ flickr.directive('flickr', function($http) {
         $scope.currentPhoto = function() {
           return $scope.photos[$scope.photoIndex];
         }
-      }
+      }]
   }
-});
+}]);
 
 flickr.directive('lightbox', function() {
   return {
