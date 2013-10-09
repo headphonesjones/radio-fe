@@ -11,6 +11,23 @@
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../js/webflow.js" defer></script>
+    <script type="text/javascript">   
+      function makeRequest() {
+        var request = gapi.client.calendar.events.list({
+          'calendarId': 'g972gtlnd1sh29kkpcim92hnrs@group.calendar.google.com'
+        });
+        request.execute(function(response) {
+          console.log(response.items);
+        });
+      }
+
+      function load() {
+        gapi.client.setApiKey('AIzaSyCZrHO0NHmcMO0apMYQpOXbiwSfEPiZP-w');
+        gapi.client.load('calendar', 'v3', makeRequest);
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=load"></script>
+
   </head><body>
   <div class="section header">
     <div class="w-container">
