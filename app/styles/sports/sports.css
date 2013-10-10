@@ -199,13 +199,14 @@ img {
   background-image: url(../img/mens-soccer2.png);
 }
 #snippet-blue-demon-weekly-host{
-  background-image: url(../img/anthonyc.jpg)
+  background-image: url(../img/dan-pawlowski.jpg);
+  background-position: 50% 70%;
 }
 #snippet-blue-demon-weekly-host2{
-  background-image: url(../img/andrewr.jpg)
+  background-image: url(../img/eli-hershkovich.jpg);
 }
 #snippet-blue-demon-weekly-host3{
-  background-image: url(../img/carlosr.jpg)
+  background-image: url(../img/carlosr.jpg);
 }
 
 #show-description{
