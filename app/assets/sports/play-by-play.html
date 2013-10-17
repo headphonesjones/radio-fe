@@ -11,30 +11,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../js/webflow.js" defer></script>
+    <script type="text/javascript" src="../js/sports.js" defer></script>
     <script type="text/javascript">   
-      function makeRequest() {
-        var currentDate = new Date()
-        var request = gapi.client.calendar.events.list({
-          'calendarId': 'g972gtlnd1sh29kkpcim92hnrs@group.calendar.google.com',
-          'description': 'Blue Demon Play-By-Play',
-          'singleEvents': 'true',
-          'timeMin': currentDate.getFullYear() + "-" + ('0'+(currentDate.getMonth()+1)).slice(-2) + "-" + currentDate.getDate() + "T00:00:00-05:00",
-        });
-        request.execute(function(response) {
-          $.each(response.items, function(key, value) {
-            $('#schedule').append($('<li>', {
-              text: value.start.dateTime + " " + value.summary
-            }));
-          });
-        });
-      }
-
-      function load() {
+      function getSchedule() {
+        window.showName = "Blue Demon Play-By-Play";
         gapi.client.setApiKey('AIzaSyCZrHO0NHmcMO0apMYQpOXbiwSfEPiZP-w');
-        gapi.client.load('calendar', 'v3', makeRequest);
+        gapi.client.load('calendar', 'v3', loadSchedule);
       }
     </script>
-    <script src="https://apis.google.com/js/client.js?onload=load"></script>
+    <script src="https://apis.google.com/js/client.js?onload=getSchedule"></script>
 
   </head><body>
   <div class="section header">
