@@ -13,11 +13,19 @@
     <script type="text/javascript" src="../js/webflow.js" defer></script>
     <script type="text/javascript">   
       function makeRequest() {
+        var currentDate = new Date()
         var request = gapi.client.calendar.events.list({
-          'calendarId': 'g972gtlnd1sh29kkpcim92hnrs@group.calendar.google.com'
+          'calendarId': 'g972gtlnd1sh29kkpcim92hnrs@group.calendar.google.com',
+          'description': 'Blue Demon Play-By-Play',
+          'singleEvents': 'true',
+          'timeMin': currentDate.getFullYear() + "-" + ('0'+(currentDate.getMonth()+1)).slice(-2) + "-" + currentDate.getDate() + "T00:00:00-05:00",
         });
         request.execute(function(response) {
-          console.log(response.items);
+          $.each(response.items, function(key, value) {
+            $('#schedule').append($('<li>', {
+              text: value.start.dateTime + " " + value.summary
+            }));
+          });
         });
       }
 
@@ -64,7 +72,7 @@
           <p>Anthony Cushion and other members of the Radio DePaul sports team give you the inside scoop on DePaul Athletics each week, with interviews, recaps and more.</p><br/>
           <hr>
           <h4>Schedule</h4>
-          <p>SCHEDULE COMING SOON<p>
+          <ul id="schedule"></ul>
         </div>
       </div>
       <div class="w-row snippet-row">
