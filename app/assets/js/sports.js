@@ -11,7 +11,7 @@ function loadSchedule() {
       var startDate = value.start.dateTime;
       var startTime = startDate.substring(11,16);
       var hours = (startTime.substring(0,2) > 12)? startTime.substring(0,2) -12 : startTime.substring(0,2);
-      var startTimeFormatted = hours + ":" + startTime.substring(3,5) + ((hours >= 12)? 'pm' : 'am');
+      var startTimeFormatted = hours + ":" + startTime.substring(3,5) + ((startTime.substring(0,2) >= 12)? 'pm' : 'am');
       var dateTimeFormatted = startDate.substring(5,7) + "/" + startDate.substring(8,10) + " " +startTimeFormatted;
       if (value.description == window.showName) {
         $('#schedule').append($('<li>', {
