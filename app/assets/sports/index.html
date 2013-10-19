@@ -35,10 +35,18 @@
   </div>
   <div>
     <div class="hero-bg">
-      <div class="w-container">
-        <a class="more-link" id="sports-stream-download" href="http://rock.radio.depaul.edu:8002/listen.pls?sid=2">
+      <div class="w-col w-col-11 right-col" id="streamfile-link-holder">
+        <h4 style="color: white;">Listen now!</h4>
+        <object type="application/x-shockwave-flash" data="player.swf" width="250" height="25">
+          <param name="movie" value="player.swf" />
+          <param name="FlashVars" value="mp3=http://rock.radio.depaul.edu:8002/stream.mp3" />
+        </object>
+        <br/><br/>
+          <a class="more-link" href="http://rock.radio.depaul.edu:8002/listen.pls?sid=2">
           Download the Sports Stream File
         </a>
+        </div><br/><br/>
+      <div class="w-container">
         <h1 id="page-nav-Section-1">This is what we play for!</h1>
         <div class="subtitle">Men's basketball game at the Allstate Arena</div>
       </div>

@@ -460,6 +460,10 @@ img {
   }
 }
 @media (max-width: 479px) {
+  #streamfile-link-holder{
+  position: relative;
+  bottom: 120px;
+  }
   .button {
     -webkit-transition: all 200ms ease;
     -o-transition: all 200ms ease;
@@ -537,6 +541,7 @@ img {
 }
 
 /* USER ADDED STYLES */
+
 #home-title{
   margin-left: 135px;
   position: relative;
