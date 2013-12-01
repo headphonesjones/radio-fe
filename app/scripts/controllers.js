@@ -54,7 +54,7 @@ controllers.controller('NewsStoryController', ['$scope', 'News', 'Page', functio
 
 controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', function($scope, Schedule, Page){
 	Page.setTitle('Schedule');
-	Schedule.query(function(data){$scope.schedule = data;});
+	Schedule.query(function(data){$scope.schedule = data;console.log($scope.schedule);});
 	$scope.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 	$scope.selected = $scope.days[new Date().getDay()];
 }]);

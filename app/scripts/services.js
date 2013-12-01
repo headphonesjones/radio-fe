@@ -1,7 +1,7 @@
 'use strict';
 /* Services */
 /*var apiUrl = 'http://radiodepaul.herokuapp.com/api/v1/'; */
-var apiUrl = 'http://162.243.122.136:3333/api/v2/';
+var apiUrl = 'http://162.243.122.136:80/api/v2/';
 
 angular.module('radio.services', [])
   .factory('Page', function() {
@@ -37,7 +37,7 @@ angular.module('radio.services', [])
 }]).factory('Schedule', ['$http', function($http){
   return {
     query: function(callback) {
-      $http.jsonp(apiUrl + 'slots/?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'schedule/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -67,7 +67,7 @@ angular.module('radio.services', [])
       });
     },
     onair: function(callback) {
-      $http.jsonp(apiUrl + 'shows/onair/?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'shows/?on_air&callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });

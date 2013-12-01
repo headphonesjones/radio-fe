@@ -1,7 +1,7 @@
 #show
   h1#name {{show.title}}
   .photoBox.left
-    img(ng-src='{{show.photo_medium}}')
+    img(ng-src='{{show.avatar_medium}}')
   .right.half
     section(ng-show='show.hosts')
       header
@@ -12,7 +12,7 @@
             p
               a(href='/#/people/{{host.id}}')
                 | {{host.name}}
-                img.show-host-photo(ng-src='{{host.photo_thumb}}')
+                img.show-host-photo(ng-src='{{host.avatar_thumb}}')
     section(ng-show='show.genres')
       header
         h1 Genres
@@ -28,10 +28,10 @@
       header
         h1 Follow {{show.title}}
       ul#personshowSocial
-        li.twitter(ng-show='show.twitter')
-          a(href='http://twitter.com/{{show.twitter}}', target='_blank')
-        li.facebook(ng-show='show.facebook')
-          a(href='http://facebook.com/{{show.facebook}}', target='_blank')
+        li.twitter(ng-show='show.twitter_username')
+          a(href='http://twitter.com/{{show.twitter_username}}', target='_blank')
+        li.facebook(ng-show='show.facebook_username')
+          a(href='http://facebook.com/{{show.facebook_page_username}}', target='_blank')
         li.email(ng-show='show.email')
           a(href='mailto:{{show.email}}')
   section.clear(ng-show='show.long_description')

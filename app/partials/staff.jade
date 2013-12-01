@@ -7,7 +7,7 @@ section#staff.shows-section
       li.staff-list(ng-repeat='person in filteredItems = (staff | filter:staffSearchFilter) | startFrom:currentPage*pageSize |  limitTo:pageSize')
         a.big(href='/#/people/{{person.id}}')
           .smallBar
-            img(ng-src='{{person.photo_thumb}}', width='50', height='50')
+            img(ng-src='{{person.avatar_thumb}}', width='50', height='50')
             span.staff-name-list
               span {{person.name}}
               span(ng-show='person.shows')  of {{person.shows}}

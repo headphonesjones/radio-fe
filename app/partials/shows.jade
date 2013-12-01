@@ -7,10 +7,10 @@ section.shows-section
     li(ng-repeat='show in filteredItems = (shows | filter:showSearchFilter) | startFrom:currentPage*pageSize | limitTo:pageSize')
       a(href='/#/shows/{{show.id}}')
         .small-bar
-          img.show-list-img(ng-src='{{show.photo_thumb}}')
+          img.show-list-img(ng-src='{{show.avatar_thumb}}')
           span.show-name {{show.title}}
           span.show-hosts(ng-show='show.hosts')
             span.no-bold &nbsp; with
             span(ng-repeat='host in show.hosts')
-              | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}{{host.name}}
+              | {{{true: ', ', false: ' '}[!$first && !$last]}}{{{true: 'and ', false: ' '}[$last && !$first]}}{{host}}
   pagination(page-size='10', count='filteredItems.length')

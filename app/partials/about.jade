@@ -10,10 +10,10 @@ html
         a.manager-name(href='/#/people/{{manager.id}}')
           p {{manager.name}}
         p {{manager.position}}
-        p
-          a(href='mailto:{{manager.email}}') {{manager.email}}
-        p {{manager.phone}} 
-        img(ng-src='{{manager.photo}}')
+        p Email: 
+          a(href='mailto:{{manager.office_email}}') {{manager.office_email}}
+        p Phone: {{manager.office_phone_number}} 
+        img(ng-src='{{manager.avatar_medium}}')
     section#contact(ng-show='tabs.active=="Contact"')
       header
         h1 Contact Info
@@ -99,7 +99,7 @@ html
         ul.segmented
           li(ng-repeat='award in awards')
             h2 {{award.name}}
-            p {{award.for}}
+            p {{award.for_field}}
             p {{award.year}}
             p {{award.award_organization.name}}
             p {{award.award_organization.url}}
