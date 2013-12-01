@@ -1,7 +1,7 @@
 'use strict';
 /* Services */
 /*var apiUrl = 'http://radiodepaul.herokuapp.com/api/v1/'; */
-/* var apiUrl = 'http://localhost:3000/api/v1/';*/
+var apiUrl = 'http://162.243.122.136:3333/api/v2/';
 
 angular.module('radio.services', [])
   .factory('Page', function() {
@@ -13,13 +13,13 @@ angular.module('radio.services', [])
 }).factory('News', ['$http', '$routeParams', function($http, $routeParams){
   return {  
     query: function(callback) {
-    $http.jsonp(apiUrl + 'news_posts.js?callback=JSON_CALLBACK').
+    $http.jsonp(apiUrl + 'news/?callback=JSON_CALLBACK').
     success(function(data, status, headers, config) {
          callback(data);
         });
   },
     get: function(callback) {
-      $http.jsonp(apiUrl + 'news_posts/'+$routeParams['id']+'.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'news/'+$routeParams['id']+'.js?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
           callback(data);
     });
@@ -28,7 +28,7 @@ angular.module('radio.services', [])
 }]).factory('Events', ['$http', function($http){
   return {
     query: function(callback) {
-      $http.jsonp(apiUrl + 'events.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'events/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -37,7 +37,7 @@ angular.module('radio.services', [])
 }]).factory('Schedule', ['$http', function($http){
   return {
     query: function(callback) {
-      $http.jsonp(apiUrl + 'slots.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'slots/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -45,7 +45,7 @@ angular.module('radio.services', [])
   }}]).factory('Managers', ['$http', function($http){
   return {
     query: function(callback) {
-      $http.jsonp(apiUrl + 'managers.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'managers/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -53,7 +53,7 @@ angular.module('radio.services', [])
   }}]).factory('Awards', ['$http', function($http){
   return {
     query: function(callback) {
-      $http.jsonp(apiUrl + 'awards.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'awards/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -61,19 +61,19 @@ angular.module('radio.services', [])
   }}]).factory('Shows', ['$http', '$routeParams', function($http, $routeParams){
   return {
     get: function(callback) {
-      $http.jsonp(apiUrl + 'shows/' + $routeParams['id'] +'.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'shows/' + $routeParams['id'] +'/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
     },
     onair: function(callback) {
-      $http.jsonp(apiUrl + 'shows/onair.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'shows/onair/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
     },    
     query: function(callback) {
-      $http.jsonp(apiUrl + 'shows.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'shows/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
@@ -81,13 +81,13 @@ angular.module('radio.services', [])
   }}]).factory('Staff', ['$http', '$routeParams', function($http, $routeParams){
   return {
     get: function(callback) {
-    $http.jsonp(apiUrl + 'people/' + $routeParams['id'] +'.js?callback=JSON_CALLBACK').
+    $http.jsonp(apiUrl + 'people/' + $routeParams['id'] +'?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
     },     
     query: function(callback) {
-      $http.jsonp(apiUrl + 'people.js?callback=JSON_CALLBACK').
+      $http.jsonp(apiUrl + 'people/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
