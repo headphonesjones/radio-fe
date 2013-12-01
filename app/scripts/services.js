@@ -1,6 +1,6 @@
 'use strict';
 /* Services */
-var apiUrl = 'http://radiodepaul.herokuapp.com/api/v1/'; 
+/*var apiUrl = 'http://radiodepaul.herokuapp.com/api/v1/'; */
 /* var apiUrl = 'http://localhost:3000/api/v1/';*/
 
 angular.module('radio.services', [])
