@@ -9,7 +9,6 @@ build.xml
 *.iml
 
 _public
-node_modules/*
 npm-debug.log
 
 test/test-results.xml
