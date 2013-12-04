@@ -63,10 +63,9 @@ directives.directive('twitter', function() {
 		twitter: '=',
 	},
     link: function($scope, element, attrs) {
-    	element.addClass('ng-hide');
-	    $scope.$watch('twitter', function () {
-	    	if ($scope.twitter) {
-		      twttr.ready(function(twttr) {
+        window.twttr = (function (d,s,id) { var t, js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });}(document, "script", "twitter-wjs"));
+        element.addClass('ng-hide');
+              twttr.ready(function(twttr) {
 		        twttr.widgets.createTimeline(
 		          '363308094438133760',
 		          angular.element(element)[0],
@@ -75,12 +74,13 @@ directives.directive('twitter', function() {
 		        	width: attrs.width || "700",
 		        	height: attrs.height || "250",
 		        	screenName: $scope.twitter,
+                    linkColor: '#18cccf',
+                    chrome: 'noheader transparent noborders noscrollbar nofooter',
+                    theme: 'dark'
 		          }
 		        );
 		        element.removeClass('ng-hide');
 		      }); 
-	    	}
-	    }, true);
     }
   };
 });

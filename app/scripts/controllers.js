@@ -3,7 +3,18 @@
 /* Controllers */
 var controllers = angular.module('radio.controllers', []);
 
-controllers.controller('navCtrl', ['$scope', '$location', '$rootScope',function ($scope, $location, $rootScope) {
+
+
+controllers.controller('navCtrl', ['$scope', '$location', '$rootScope', 'Schedule', function ($scope, $location, $rootScope, Schedule) {
+    $scope.getWidth = function() {
+        return window.innerWidth;
+    };
+    $scope.$watch($scope.getWidth, function(newValue, oldValue) {
+        $scope.window_width = newValue;
+    });
+    window.onresize = function(){
+        $scope.$apply();
+    }
 
     $scope.navClass = function (page) {
         var currentRoute = $location.path().substring(1) || 'home';
@@ -33,11 +44,24 @@ controllers.controller('navCtrl', ['$scope', '$location', '$rootScope',function 
 controllers.controller('sidebarController', ['$scope', function ($scope) {
 	$scope.twitter = "radiodepauldjs";
 }]);
-controllers.controller('HomeController', ['$scope', 'News', 'Events', 'Page', function($scope, News, Events, Page){
+
+controllers.controller('HomeController', ['$scope', 'News', 'Events', 'Page', 'Sponsors', function($scope, News, Events, Page, Sponsors){
     Page.setTitle('Home');
     $scope.page = "Radio DePaul"
 	News.query(function(data){$scope.news = data;});
-	Events.query(function(data){$scope.events = data;});
+	Events.query(function(data){
+        angular.forEach(data, function(value, key) {
+            if (value.date) {
+                var monthNames = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC" ];
+                var dateParts = value.date.split('-');
+                value.day = dateParts[2];
+                value.month = monthNames[dateParts[1]-1];
+                value.year = dateParts[0];
+             }
+        })
+        $scope.events = data;
+    });
+    Sponsors.query(function(data){$scope.sponsors = data;});
 }]);
 
 
@@ -59,60 +83,69 @@ controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', func
 	$scope.selected = $scope.days[new Date().getDay()];
 }]);
 
+controllers.controller('MusicController', ['$scope', '$rootScope', 'Schedule', function($scope, $rootScope){
+    $scope.playing = false;
+    $scope.$on('player', function(event, args) {
+        $scope.catchPlay();
+//        $scope.playing = !$scope.playing;
 
-controllers.controller('OnAirController', ['$scope', '$rootScope', 'Shows', function($scope, $rootScope, Shows){
+    });
 
-	$scope.iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
-    
-	$scope.playing = false;
+    $scope.catchPlay = function() {
+    }
+    $scope.playPauseMusic = function() {
+        console.log($scope.playing);    
+        if ($scope.playing === false) {
+            if ($scope.soundObject) {
+                $scope.soundObject.play();
+            } else {
+                $scope.loadSM2();
+            }
+            $scope.playing = true;            
+        } else {
+            $scope.soundObject.pause();
+            $scope.playing = false;
+        }
+    }
+    var btn = document.getElementById('play-pause');
+    btn.addEventListener('click', $scope.playPauseMusic.bind(this), false)
+    var lstnNow = document.getElementById('launchPlayer');
+    lstnNow.addEventListener('click', $scope.playPauseMusic.bind(this), false)
 
-	Shows.onair(function(data){$scope.show = data;});
+    $scope.loadSM2 = function() {
+        //move load code here
 
-	$scope.$on('player', function(event, args) {
-		if (args == 'play') {
-			if ($scope.playing == false) {
-				$scope.playMusic();
-			}
-		}
-	});
+        soundManager.setup({
+            url: '/js/swf/', 
+            flashVersion: 9, 
+            onready: function() { 
+                $scope.soundObject = soundManager.createSound({
+                  id: 'mySound',
+                  url: 'http://rock.radio.depaul.edu:8000/stream.mp3&137714603810',
+                  autoLoad: true,
+                  autoPlay: true,
+                  volume: 75,
+                  useHTML5Audio: true                
+                });
+            }
 
-	$scope.playMusic = function() {
-		if ($scope.iOS == false) {
-			if ($scope.soundObject) {
-				$scope.soundObject.play();
-			} else {
-				$scope.loadSM2();
-			}
-			$scope.playing = true;
-		 	$rootScope.$broadcast('player', 'playing');
-		}
-	}
+        });
 
-	$scope.pauseMusic = function() {
-		$scope.soundObject.pause();
-		$scope.playing = false;
-     	$rootScope.$broadcast('player', 'paused');
-	}
-	$scope.loadSM2 = function() {
-		//move load code here
+    }
 
-		soundManager.setup({
-			url: '/js/swf/', 
-			flashVersion: 9, 
-			onready: function() { 
-				$scope.soundObject = soundManager.createSound({
-				  id: 'mySound',
-				  url: 'http://rock.radio.depaul.edu:8000/stream.mp3&137714603810',
-				  autoLoad: true,
-				  autoPlay: true,
-				  volume: 75,
-				  useHTML5Audio: true,
-				});
-			}
-		});
+}]);
 
-	}
-   	
+
+controllers.controller('OnAirController', ['$scope', 'Schedule', function($scope, Schedule){
+	Schedule.onair(function(data){
+        for (var i = 0;i < 2;i++) {
+            if (data[i].order === 0) {
+                $scope.slot = data[i];
+            } else {
+                $scope.next_slot = data[i];
+            }
+        }
+    });
 }]);
 
 

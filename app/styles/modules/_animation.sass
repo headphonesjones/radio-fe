@@ -1,0 +1,23 @@
+
+.playerani.ng-enter, .playerani.ng-leave, #player
+  -webkit-transition: .5s linear all
+  transition: .5s linear all
+  -webkit-transition-delay: 3s
+  transition-delay: 2s
+  display: block!important
+  bottom: 0
+
+.playerani.ng-enter #player
+  bottom: -64px
+
+.playerani.ng-enter.ng-enter-active #player
+  bottom: 0
+
+.playerani.ng-leave
+  top: 0
+  z-index: 101
+  opacity: 1
+
+.playerani.ng-leave.ng-leave-active
+  top: -600px
+  opacity: 0

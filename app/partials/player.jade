@@ -1,35 +1,40 @@
-#now_playing_light
-  p On Air
-#now_playing(ng-controller = 'OnAirController')
-  #image-title-container
-    img.player-show-image(ng-src = '{{show.photo_thumb}}')
-    #on-air-show-text
-      #showtitle
-        h2
-          a(href = '/#/shows/{{show.id}}') {{show.title}}
-        h3
-          span#host-text Host(s) 
-          span#on-air-host-list(ng-repeat = 'host in show.hosts')
-            a#playing-host-names( href = '/#/person/{{host.id}}')
-              {{host.name}}
-        span#playing-genres {{show.genres}}
+#player(ng-controller = 'OnAirController', ng-cloak)
+  #now_playing
+    img#player-show-image(ng-src = '{{slot.show.avatar_thumb}}')
+    #onair-text
+      #onair-title
+          a(href = '/#/shows/{{slot.show.id}}') {{slot.show.title}}
+      #onair-hosts 
+          span(ng-repeat = 'host in slot.show.hosts')
+            a(href = '/#/person/{{host.id}}') {{host.name}}
+      #onair-genres {{slot.show.genres}}
 
-  #play-pause-buttons(ng-hide = "iOS")
-    a#play-button.button.button-circle.button-primary(ng-click = 'playMusic()', ng-hide = "playing") 
-      span#play-icon &#9658;
-    a#pause-button.button.button-circle.button-caution(ng-click = 'pauseMusic()', ng-show = "playing", ng-cloak = true)
-      span#stop-icon I I
 
-#chatroom-holder(ng-controller = 'ChatController')
-  section#chatroom.ng-cloak(ng-show = "showChat")
-    header(ng-click = "toggleChat()" )
-      h1 Chat With Us Live!
-      img#minimize-icon(src = "img/minimize.png")
-    iframe(width = 250, height = 300, ng-src = "{{trustSrc(chatURL)}}")
-  #button-holder
-    #webcam-streamfile-box
-      a#webcam-button.button.button-rounded.button-flat-primary.button-tiny(href = "/#/webcam") Watch the Webcam
-      a#streamfile-button.button.button-rounded.button-flat-primary.button-tiny(href = "http://rock.radio.depaul.edu:8000/listen.pls?sid=1") Download the Streamfile
-    #chat-player-box(ng-cloak)
-      a#chat-button.button.button-rounded.button-flat-primary.button-tiny(ng-click = "toggleChat()") Chat with our DJs
-      a#player-button.button.button-rounded.button-flat-primary.button-tiny(onClick = "window.open('../popupplayer.html','toolbar=no, menubar=no, location=no, status=no, titlebar=no','width=390,height=100');") Pop-up Player
+  div(ng-controller = 'MusicController')
+    #play-pause(ng-click="catchPlay()", ng-class="{playing: playing===true}") xxxxx
+    || {{playing}}
+    #play-pause-buttons
+      a#play-button(ng-click = 'playMusic()', ng-hide = "playing") 
+      a#pause-button(ng-click = 'pauseMusic()', ng-show = "playing", ng-cloak = true) 
+    #volume-control
+      i.fa.fa-volume-up.fa-lg
+      #volume-bar
+        #volume-position
+ 
+    #button-holder
+      a(data-hint="Pop-Up Player", onClick = "window.open('../popupplayer.html','toolbar=no, menubar=no, location=no, status=no, titlebar=no','width=390,height=100');")
+        i.fa.fa-music.fa-2x
+      a(href = "/#/webcam", data-hint='Watch Webcam')
+        i.fa.fa-video-camera.fa-2x
+      a(href = "http://rock.radio.depaul.edu:8000/listen.pls?sid=1", data-hint="Download Audio Stream")
+        i.fa.fa-cloud-download.fa-2x
+  #chatroom-holder(ng-controller = 'ChatController')
+    section#chatroom.ng-cloak(ng-show = "showChat")
+      header(ng-click = "toggleChat()" )
+        h1 Chat With Us Live!
+        img#minimize-icon(src = "img/minimize.png")
+      iframe(width = 250, height = 300, ng-src = "{{trustSrc(chatURL)}}")
+
+      #webcam-streamfile-box
+      #chat-player-box(ng-cloak)
+        a#chat-button.button.button-rounded.button-flat-primary.button-tiny(ng-click = "toggleChat()") Chat with our DJs

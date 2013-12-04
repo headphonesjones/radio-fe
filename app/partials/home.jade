@@ -1,36 +1,45 @@
-section
-  header
-    h1
-      a#home-news-headline(href='/#/station_news') Radio DePaul News
-  .content
-    ul
-      li(ng-repeat='item in news')
-        header.headline
-          h2
-            a(href='#/station_news/{{item.id}}') {{item.headline}}
-          date {{item.published_at}}
-        .content(ng-bind='item.snippet')
-        a.read-more-button.highlight-color(href='#/station_news/{{item.id}}') Read more ..
-section#events
-  header
-    h1 Coming Up
-  .content
-    ul.segmented
-      li(ng-repeat='event in events')
-        h2 {{event.title}}
-        p {{event.first_line}} - {{event.second_line}}
-        p {{event.location}}
-        p {{event.description}}
-section
-  header
-    h1 Recent Posts
-  .content(disqus='page')
-#sponsors
-  br
-  h2 Sponsors of Radio DePaul
-  a(href='http://www.costellosandwich.com/')
-    #costello
-  a(href='http://www.redmangousa.com/')
-    #redmango
-  a(href='#/about/join_radio_depaul')
-    #sponsor-link
+img#home_image(src = '/img/station.jpg')
+#left
+  section#news-section
+    header
+      h1
+        a#home-news-headline(href='/#/station_news') Latest <em>News</em>
+    .content
+      ul
+        li.news-item(ng-repeat='item in news')
+          img()
+          header.headline
+            h2
+              a(href='#/station_news/{{item.id}}') {{item.headline}}
+          date {{item.publication_date}}
+          .content(ng-bind='item.snippet')
+  section#disqus-section
+    header
+      h1 Recent 
+        em Posts
+    .content(disqus='page')
+
+#right
+  section#events
+    header
+      h1 Coming 
+        em Up
+    .content
+      ul
+        li(ng-repeat='event in events')
+          .event-date(ng-class="{nodate: event.date==null}") 
+            .event-day {{event.day}}
+            .event-month {{event.month}}
+            .event-year {{event.year}}
+            span(ng-show="!event.date") !
+          .contents
+            h3 {{event.title}}
+            p {{event.location}}
+            p {{event.description}}
+  section
+    header
+      h1 Our 
+        em Sponsors
+    .sponsor(ng-repeat="sponsor in sponsors", ng-class="{last: $last && $even}")
+      a(href='{{sponsor.url}}')
+        img(ng-src="{{sponsor.image}}", alt="{{sponsor.name}}", width="300")

@@ -1,36 +1,17 @@
-#left-side-nav-holder
-  ul#left-side-nav
-    li
-      a(href= '/#', ng-class = 'navClass("home")') Home
-    li
-      a(href= '/#/schedule/', ng-class = 'navClass("schedule")') Schedule
-    li
-      a(href= '/#/shows/',  ng-class = 'navClass("shows")') Shows
-    li
-      a(href= '/#/people/', ng-class = 'navClass("people")') Staff
-#right-side-nav-holder
-  ul#right-side-nav
-    li
-      a(href= '/#/media/', ng-class = 'navClass("media")') Media
-    li
-      a(href= '/#/about/', ng-class = 'navClass("about")') About
-    li
-      a(href= 'http://radiodepaul.herokuapp.com/application') Apply
-    li
-      a#launchPlayer(ng-click = 'playMusic()', ng-class = '(active= playing)') Listen Now
-a(href= '/sports/', target= "_self" )
-  img#sports-ball(src = "/img/ball2.png")
-#mobile-select
-  select(onchange="if (this.value) window.location.href=this.value")
-    option(value="/#") Home
-    option(value='/#/schedule/') Schedule
-    option(value= '/#/shows/') Shows
-    option(value= '/#/people/') Staff
-    option(value= '/#/media/') Media
-    option(value= '/#/about/') About
-    option(value='/sports/') Sports
-    option(value= 'http://radiodepaul.herokuapp.com/application') Apply
-    Option(value= "/#/webcam") Watch Live!
-
-audio(controls=true, ng-show = "iOS", preload="none")
-    source(src="http://rock.radio.depaul.edu:8000/stream/1/", type="audio/mpeg")
+ul#nav-links
+  li
+    a(href= '/#', ng-class = 'navClass("home")') Home
+  li
+    a(href= '/#/schedule/', ng-class = 'navClass("schedule")', ng-click="showMenu=false") Schedule
+  li
+    a(href= '/#/shows/',  ng-class = 'navClass("shows")', ng-click="showMenu=false") Shows
+  li
+    a(href= '/#/people/', ng-class = 'navClass("people")', ng-click="showMenu=false") Staff
+  li
+    a(href= '/#/media/', ng-class = 'navClass("media")', ng-click="showMenu=false") Media
+  li
+    a(href= '/#/about/', ng-class = 'navClass("about")', ng-click="showMenu=false") About
+  li
+    a(href= 'http://radiodepaul.herokuapp.com/application') Apply
+  li
+    a#launchPlayer(ng-click = 'playMusic()', ng-class = '(active= playing)') Listen Now

@@ -1,0 +1,26 @@
+header(ng-controller = 'navCtrl')
+  i#menu-button.icon-menu.icon-2x(ng-click="showMenu = !showMenu")
+  #logo-bar
+    a(href="/")
+      img#logo(src="/img/logo.png")
+    #show-bar(ng-controller= 'OnAirController')
+      .show
+        h1 On Now
+        h2
+          a(href='/#/shows/{{slot.show.id}}') {{slot.show.title}}
+
+      .show.next
+        h1 {{next_slot.start_time}}
+        h2
+          em
+            a(href='/#/shows/{{next_slot.show.id}}') {{next_slot.show.title}}
+
+  nav(ng-show="showMenu || window_width >= 480")
+    include _nav
+  #social-icons
+    a#facebook-icon(href="http://www.facebook.com/radiodepaul")
+      i.icon-facebook
+    a#twitter-icon(href="http://www.twitter.com/radiodepaul")
+      i.icon-twitter
+    a#flickr-icon(href="http://www.flickr.com/photos/radiodepaul/")
+      i.icon-flickr

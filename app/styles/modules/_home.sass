@@ -1,0 +1,100 @@
+#home_image
+  border: 15px solid #fff
+  width: 100%
+  display: block
+  margin: auto
+  margin-bottom: 25px
+
+  
+#news-section
+  .content
+    padding: 0
+    background-color: inherit
+    li
+      padding: 15px
+      background-color: #fff
+      margin-bottom: 5px
+      overflow: hidden
+      img
+        display: block
+        float: left
+        margin-right: 15px
+        width: 72px
+        height: 48.96px
+      .content
+        display: none
+      date
+        display: none
+  .headline
+    margin-bottom: 10px
+
+#disqus-section
+  display: none
+
+#events
+  li
+    overflow: hidden
+    margin-bottom: 15px
+  .event-date
+    width: 40px
+    height: 75px
+    float: left
+    text-align: center
+    margin-right: 10px
+    &.nodate
+      font-size: 60px
+      line-height: 60px
+    .event-day
+      font-size: 36px
+    .event-month
+      font-size: 18px
+    .event-year
+      font-size: 18px
+  .contents
+    margin-left: 50px
+    display: block
+
+.sponsor
+  width: 50%
+  text-align: center
+  float: left
+  padding: 10px
+  background-color: #fff
+  img
+    width: 100%
+    max-width: 300px
+  &.last
+    width: 100%
+    padding: 5px 30px
+
+@media screen and (min-width: 480px)
+  #news-section
+    .content
+      li
+        .content
+          display: block
+        img
+          width: 125px
+          height: 85px
+
+@media screen and (min-width: 768px)
+  #disqus-section
+    display: block
+
+  .sponsor
+    width: 100%
+    padding: 15px
+    &.last
+      padding: 15px
+@media screen and (min-width: 1024px)
+  #news-section
+    .content
+      li
+        .content
+          line-height: 20px
+        date
+          display: block
+          margin-bottom: 10px
+        img
+          width: 250px
+          height: 170px

@@ -1,7 +1,6 @@
 'use strict';
 /* Services */
-/*var apiUrl = 'http://radiodepaul.herokuapp.com/api/v1/'; */
-var apiUrl = 'http://162.243.122.136:80/api/v2/';
+var apiUrl = 'http://radiodepaul.herokuapp.com/api/v2/';
 
 angular.module('radio.services', [])
   .factory('Page', function() {
@@ -34,14 +33,35 @@ angular.module('radio.services', [])
       });
     } 
   }
+}]).factory('Sponsors', ['$http', function($http){
+  return {
+    query: function(callback) {
+      $http.jsonp(apiUrl + 'sponsors/?callback=JSON_CALLBACK').
+      success(function(data, status, headers, config) {
+            callback(data);
+      });
+    } 
+  }
 }]).factory('Schedule', ['$http', function($http){
+  var _onair;
   return {
     query: function(callback) {
       $http.jsonp(apiUrl + 'schedule/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {
             callback(data);
       });
-    } 
+    },
+    onair: function(callback) {
+      if (angular.isDefined(_onair)) {
+        callback(_onair)
+      } else {
+        $http.jsonp(apiUrl + 'schedule/?on_air&callback=JSON_CALLBACK').
+        success(function(data, status, headers, config) {
+              _onair = data;
+              callback(_onair);
+        });
+      }
+    },    
   }}]).factory('Managers', ['$http', function($http){
   return {
     query: function(callback) {
@@ -59,6 +79,8 @@ angular.module('radio.services', [])
       });
     } 
   }}]).factory('Shows', ['$http', '$routeParams', function($http, $routeParams){
+  var _onair;
+
   return {
     get: function(callback) {
       $http.jsonp(apiUrl + 'shows/' + $routeParams['id'] +'/?callback=JSON_CALLBACK').
@@ -66,12 +88,6 @@ angular.module('radio.services', [])
             callback(data);
       });
     },
-    onair: function(callback) {
-      $http.jsonp(apiUrl + 'shows/?on_air&callback=JSON_CALLBACK').
-      success(function(data, status, headers, config) {
-            callback(data);
-      });
-    },    
     query: function(callback) {
       $http.jsonp(apiUrl + 'shows/?callback=JSON_CALLBACK').
       success(function(data, status, headers, config) {

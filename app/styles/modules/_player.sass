@@ -1,0 +1,121 @@
+#player
+  height: 64px
+  position: fixed
+  width: 100%
+  bottom: 0
+  background-color: rgba(0,0,0,.96)
+  padding: 8px 5px
+  color: #fff
+  left: 0
+  a
+    color: #fff
+  #now_playing
+    position: relative
+    width: 100%
+
+
+  #player-show-image
+    float: left
+    margin-right: 10px
+    width: 50px
+    height: 50px
+
+  #onair-text
+    float: left
+    #onair-title
+      font-weight: 400
+      line-height: 17px
+      a
+        color: #fff
+        text-decoration: none
+        &:hover
+          color: $highlight
+    #onair-hosts
+      font-size: 13px
+      a
+        color: $highlight
+        line-height: 16px
+        &:hover
+          color: #fff
+    #onair-genres
+      font-size: 12px
+      line-height: 12px
+      color: #666
+
+  #play-pause-buttons
+    position: absolute
+    right: 5px
+    top: 12px
+    #play-button
+      background: url('/img/player.png') 0 0 no-repeat
+      width: 41px  
+      height: 41px
+      display: block
+    #pause-button
+      background: url('/img/player.png') 0 -103px no-repeat
+      width: 41px  
+      height: 41px
+      display: block
+
+  #volume-control
+    display: none
+
+  #chatroom-holder
+    display: none
+
+
+
+@media screen and (min-width: $break-wide-phone)
+  #player
+    #play-pause-buttons
+      position: absolute
+      left: 50%
+      top: 12px
+      margin-left: -20px
+
+    #volume-control
+      display: inherit
+      position: absolute
+      left: 50%
+      margin-left: 60px
+      height: 64px
+      line-height: 64px
+      color: #fff
+      top: 0
+
+      #volume-bar
+        width: 98px
+        height: 18px
+        background-color: #3c3c3c
+        position: absolute
+        left: 35px
+        top: 23px
+        border-radius: 3px
+
+        #volume-position
+          height: 10px
+          position: absolute
+          width: 44px
+          background-color: #18cecf
+          top: 4px
+          left: 5px
+          border-radius: 3px
+
+    #button-holder
+      position: absolute
+      right: 0
+      top: 0
+      a
+        margin-left: 30px
+    #chatroom-holder
+      display: inherit
+      position: absolute
+      right: 0
+      top: 0
+
+@media screen and (min-width: 1024px)
+  #player
+    #now_playing
+      width: 1024px
+      margin: 0 auto
+      padding: 0 20px
