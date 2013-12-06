@@ -51,12 +51,50 @@
       width: 41px  
       height: 41px
       display: block
-    #pause-button
-      background: url('/img/player.png') 0 -103px no-repeat
-      width: 41px  
-      height: 41px
-      display: block
+      &.loading
+        background-image: url("http://i40.tinypic.com/2iar8mo.png")
+        -webkit-animation: play 0.8s steps(12) infinite
+        -moz-animation: play 0.8s steps(12) infinite
+        -ms-animation: play 0.8s steps(12) infinite
+        -o-animation: play 0.8s steps(12) infinite
+        animation: play 0.8s steps(12) infinite
 
+        @-webkit-keyframes play
+          from
+            background-position: 0px
+          to
+            background-position: -492px
+
+
+        @-moz-keyframes play
+          from
+            background-position: 0px
+          to
+            background-position: -500px
+
+
+        @-ms-keyframes play
+          from
+            background-position: 0px
+          to
+            background-position: -500px
+
+
+        @-o-keyframes play
+          from
+            background-position: 0px
+          to
+            background-position: -500px
+
+
+        @keyframes play
+          from
+            background-position: 0px
+          to
+            background-position: -492px
+      &.playing
+        background: url('/img/player.png') 0 -103px no-repeat
+      
   #volume-control
     display: none
 
@@ -91,14 +129,13 @@
         left: 35px
         top: 23px
         border-radius: 3px
+        padding: 4px
 
         #volume-position
           height: 10px
-          position: absolute
-          width: 44px
+          width: 75%
+          border-right: 50%
           background-color: #18cecf
-          top: 4px
-          left: 5px
           border-radius: 3px
 
     #button-holder

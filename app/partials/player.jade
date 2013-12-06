@@ -1,5 +1,5 @@
-#player(ng-controller = 'OnAirController', ng-cloak)
-  #now_playing
+#player
+  #now_playing(ng-controller = 'OnAirController', ng-cloak)
     img#player-show-image(ng-src = '{{slot.show.avatar_thumb}}')
     #onair-text
       #onair-title
@@ -11,16 +11,15 @@
 
 
   div(ng-controller = 'MusicController')
-    #play-pause(ng-click="catchPlay()", ng-class="{playing: playing===true}") xxxxx
-    || {{playing}}
+    #play-pause(ng-click="playPause()", ng-class="{playing: playing===true}") Play1
+    #play-pause-bind(ng-class="{playing: playing===true}") Play with bind
+    div loaded: {{loaded}} playing: {{playing}} message: {{message}} canplay: {{player.canplay}} 
     #play-pause-buttons
-      a#play-button(ng-click = 'playMusic()', ng-hide = "playing") 
-      a#pause-button(ng-click = 'pauseMusic()', ng-show = "playing", ng-cloak = true) 
+      #play-button(ng-click = 'playMusic()', ng-class="{loading: loading===true}") 
     #volume-control
       i.fa.fa-volume-up.fa-lg
-      #volume-bar
-        #volume-position
- 
+      #volume-bar(ng-click="setVolume($event)")
+        #volume-position(ng-style="{width: getVolume()}")
     #button-holder
       a(data-hint="Pop-Up Player", onClick = "window.open('../popupplayer.html','toolbar=no, menubar=no, location=no, status=no, titlebar=no','width=390,height=100');")
         i.fa.fa-music.fa-2x

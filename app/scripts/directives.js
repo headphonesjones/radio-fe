@@ -4,6 +4,8 @@
 
 var directives = angular.module('radio.directives', []);
 
+
+
 directives.directive('pagination', function() {
 	return {
 		template: '<div id="pagination-container">' +
@@ -57,14 +59,29 @@ directives.directive('pagination', function() {
 
 directives.directive('twitter', function() {
   return {
-	  replace: false,
+	replace: false,
   	restrict: 'EA',
 	scope: {
 		twitter: '=',
 	},
     link: function($scope, element, attrs) {
-        window.twttr = (function (d,s,id) { var t, js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });}(document, "script", "twitter-wjs"));
-        element.addClass('ng-hide');
+        $scope.twitter_loaded = false;
+        $scope.getWidth = function() {
+            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        };
+        $scope.$watch($scope.getWidth, function(newValue, oldValue) {
+            if ($scope.twitter_loaded === false && newValue >= 768) {
+                $scope.twitter_loaded = true
+                $scope.loadtwitter();
+            }
+        });
+        window.onresize = function(){
+            $scope.$apply();
+        }
+
+        $scope.loadtwitter = function() {
+            window.twttr = (function (d,s,id) { var t, js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });}(document, "script", "twitter-wjs"));
+            element.addClass('ng-hide');
               twttr.ready(function(twttr) {
 		        twttr.widgets.createTimeline(
 		          '363308094438133760',
@@ -81,6 +98,7 @@ directives.directive('twitter', function() {
 		        );
 		        element.removeClass('ng-hide');
 		      }); 
+          }
     }
   };
 });

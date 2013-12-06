@@ -7,7 +7,7 @@ var controllers = angular.module('radio.controllers', []);
 
 controllers.controller('navCtrl', ['$scope', '$location', '$rootScope', 'Schedule', function ($scope, $location, $rootScope, Schedule) {
     $scope.getWidth = function() {
-        return window.innerWidth;
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     };
     $scope.$watch($scope.getWidth, function(newValue, oldValue) {
         $scope.window_width = newValue;
@@ -83,55 +83,66 @@ controllers.controller('ScheduleController', ['$scope', 'Schedule', 'Page', func
 	$scope.selected = $scope.days[new Date().getDay()];
 }]);
 
-controllers.controller('MusicController', ['$scope', '$rootScope', 'Schedule', function($scope, $rootScope){
+controllers.controller('MusicController', ['$scope', 'AudioService', function($scope, AudioService){
+    $scope.player = AudioService;
+    $scope.loaded = false;
+    $scope.loading = false;
     $scope.playing = false;
-    $scope.$on('player', function(event, args) {
-        $scope.catchPlay();
-//        $scope.playing = !$scope.playing;
+    $scope.volume = 1;
 
-    });
 
-    $scope.catchPlay = function() {
+    $scope.setVolume = function($event) {
+      var bar = document.getElementById('volume-position');
+      var newValue = $event.layerX-4
+      if (newValue > 90) newValue = 90;
+      if (newValue < 0) newValue = 0;
+      if ($scope.loaded) $scope.player.volume(newValue/90)
+      $scope.volume = newValue/90
+    };
+
+    $scope.getVolume = function() {
+        if(!$scope.loaded) return ($scope.volume *100) + "%"
+        return ($scope.player.volume() * 100) + "%"
     }
-    $scope.playPauseMusic = function() {
-        console.log($scope.playing);    
-        if ($scope.playing === false) {
-            if ($scope.soundObject) {
-                $scope.soundObject.play();
-            } else {
-                $scope.loadSM2();
-            }
-            $scope.playing = true;            
-        } else {
-            $scope.soundObject.pause();
-            $scope.playing = false;
-        }
-    }
-    var btn = document.getElementById('play-pause');
-    btn.addEventListener('click', $scope.playPauseMusic.bind(this), false)
-    var lstnNow = document.getElementById('launchPlayer');
-    lstnNow.addEventListener('click', $scope.playPauseMusic.bind(this), false)
-
-    $scope.loadSM2 = function() {
-        //move load code here
-
-        soundManager.setup({
-            url: '/js/swf/', 
-            flashVersion: 9, 
-            onready: function() { 
-                $scope.soundObject = soundManager.createSound({
-                  id: 'mySound',
-                  url: 'http://rock.radio.depaul.edu:8000/stream.mp3&137714603810',
-                  autoLoad: true,
-                  autoPlay: true,
-                  volume: 75,
-                  useHTML5Audio: true                
-                });
-            }
-
+    $scope.playPause = function() {
+      $scope.playing = !$scope.playing;
+      if(!$scope.loaded) {
+        $scope.loading = true;
+        $scope.player.load('http://rock.radio.depaul.edu:8000/stream.mp3&137714603810;');
+        $scope.message = 'loading';
+        $scope.player.on('canplay', function() {
+            $scope.$apply(function () {
+              $scope.message = 'canplay';
+              $scope.loaded = true;
+            });
+            $scope.player.playPause();
+            $scope.player.volume($scope.volume);
         });
-
+      } else {
+        $scope.player.playPause();
+      }
     }
+
+    $scope.playPauseWithBind = function() {
+      $scope.$apply(function () {
+        $scope.playing = !$scope.playing;
+      });
+      if(!$scope.loaded) {
+        $scope.player.load('http://rock.radio.depaul.edu:8000/stream.mp3&137714603810;');
+        $scope.player.on('canplay', function() {
+            $scope.$apply(function () {
+              $scope.loaded = true;
+              $scope.player.volume($scope.volume);
+            });
+            $scope.player.playPause();
+        });
+        
+      } else {
+        $scope.player.playPause();
+      }
+    }
+    var btn = document.getElementById('play-pause-bind');
+    btn.addEventListener('click', $scope.playPauseWithBind.bind(this), false);
 
 }]);
 
@@ -246,7 +257,18 @@ controllers.controller('HeadController', ['$scope', 'Page', function($scope, Pag
 	$scope.Page = Page;
 }]);
 
+controllers.controller('FooterController', ['$scope', function($scope) {
+    $scope.getWidth = function() {
+        return window.innerWidth;
+    };
+    $scope.$watch($scope.getWidth, function(newValue, oldValue) {
+        $scope.window_width = newValue;
+    });
+    window.onresize = function(){
+        $scope.$apply();
+    }
 
+}])
 controllers.controller('WebcamController', ['$scope', function($scope){
     
 	loadJS('http://jwpsrv.com/library/GgcroA5wEeOwaBIxOUCPzg.js', function() { 

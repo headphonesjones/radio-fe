@@ -1,4 +1,4 @@
-footer.container
+footer.container(ng-controller="FooterController")
   section.column
     h2 DePaul 
       em Links
@@ -22,7 +22,7 @@ footer.container
       li
         a(href ='http://www.depaul.edu/Pages/copyright.aspx') © 2001-2013
 
-  section#twitter-feed.column
+  section#twitter-feed.column()
     h2 Twitter 
       em Feed
     a(twitter = "twitter", height = "300", data-chrome="noheader transparent")
